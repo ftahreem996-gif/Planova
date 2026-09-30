@@ -120,7 +120,7 @@ const createTables = () => {
 
 // ==================== TEST ====================
 
-app.post("/api/test", (req, res) => {
+app.get("/api/test", (req, res) => {
 
     res.json({
         message: "Planova backend connected!"
