@@ -8,7 +8,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "MySQL2009",
+    password: process.env.DB_PASSWORD,
     database: "planova",
     port: 3307
 });
