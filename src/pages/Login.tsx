@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_URL } from "../config";
 
 interface LoginProps {
   onLogin: (userId: number, email: string) => void;
@@ -25,7 +26,7 @@ function Login({ onLogin, onShowSignup }: LoginProps) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/login",
+        `${API_URL}/api/login`,
         {
           method: "POST",
           headers: {
@@ -65,7 +66,7 @@ function Login({ onLogin, onShowSignup }: LoginProps) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/reset-password",
+        `${API_URL}/api/reset-password`,
         {
           method: "PUT",
           headers: {

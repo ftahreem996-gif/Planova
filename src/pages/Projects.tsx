@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../config";
 
 interface Project {
   id: number;
@@ -44,7 +45,7 @@ function Projects({
     const fetchProjects = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/projects/${userId}`
+          `${API_URL}/api/projects/${userId}`
         );
 
         const data = await response.json();
@@ -80,7 +81,7 @@ function Projects({
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/projects",
+       `${API_URL}/api/projects`,
         {
           method: "POST",
           headers: {
@@ -124,7 +125,7 @@ function Projects({
   const deleteProject = async (id: number) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/projects/${id}`,
+       `${API_URL}/api/projects/${id}`,
         {
           method: "DELETE",
         }
@@ -162,7 +163,7 @@ function Projects({
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/projects/${editingId}`,
+        `${API_URL}/api/projects/${editingId}`,
         {
           method: "PUT",
           headers: {

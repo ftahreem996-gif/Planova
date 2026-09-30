@@ -1,4 +1,5 @@
 import { useEffect, useState, Dispatch, SetStateAction } from "react";
+import { API_URL } from "../config";
 
 interface Task {
   id: number;
@@ -51,7 +52,7 @@ function Tasks({
 
         for (const project of projects) {
           const response = await fetch(
-            `http://localhost:5000/api/tasks/${project.id}`
+            `${API_URL}/api/tasks/${project.id}`
           );
 
           const data = await response.json();
@@ -104,7 +105,7 @@ function Tasks({
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/tasks",
+        `${API_URL}/api/tasks`,
         {
           method: "POST",
           headers: {
@@ -155,7 +156,7 @@ function Tasks({
   const deleteTask = async (id: number) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tasks/${id}`,
+        `${API_URL}/api/tasks/${id}`,
         {
           method: "DELETE",
         }
@@ -191,7 +192,7 @@ function Tasks({
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tasks/${id}`,
+        `${API_URL}/api/tasks/${id}`,
         {
           method: "PUT",
           headers: {
@@ -254,7 +255,7 @@ function Tasks({
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tasks/${editingId}`,
+        `${API_URL}/api/tasks/${editingId}`,
         {
           method: "PUT",
           headers: {

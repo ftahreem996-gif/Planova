@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_URL } from "../config";
 
 interface SignupProps {
     onSignup: (userId: number, email: string) => void;
@@ -23,7 +24,7 @@ function Signup({ onSignup, onShowLogin }: SignupProps) {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/signup", {
+            const response = await fetch(`${API_URL}/api/signup`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
